@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+
+    .foot-heading{
+        @apply text-[500] text-[#555] text-[10px] sm:text-[14px] font-[500];
+    }
+
+    .foot-comp{
+        @apply text-[#bbb] hover:text-[#555] cursor-pointer text-[7px] sm:text-[10px] font-[500];
+    }
+
+    .foot-about{
+        @apply text-[#bbb] text-[7px] sm:text-[10px];
+    }
+
+    .foot-contactdet{
+        @apply text-[9px] font-bold text-[#bbb] relative text-[7px] sm:text-[9px] top-1 sm:bottom-1;
+    }
+
+}
