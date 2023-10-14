@@ -2,7 +2,7 @@ import React from 'react'
 
 const MyPostsComp = ({title,desc,imgSrc}) => {
   return (
-    <div className='flex flex-col gap-[40px] border-[1px] p-[20px] '>
+    <div className='flex flex-col gap-[40px] border-[3px] border-amber-500 p-[20px] '>
 
     <div className='flex flex-col sm:flex-row gap-[80px] bg-[#111] text-[#bbb] '>
     <div className='flex flex-1 '>
