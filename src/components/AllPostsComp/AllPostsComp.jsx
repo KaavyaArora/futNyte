@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { styles } from './styles';
 
 const AllPostsComp = ({title,desc,imgSrc,commentCnt,viewsCnt,likesCnt}) => {
 
@@ -27,76 +28,76 @@ const AllPostsComp = ({title,desc,imgSrc,commentCnt,viewsCnt,likesCnt}) => {
     }
 
 
-  return (
+return (
 
-<div className='flex flex-col gap-[20px] border-[3px] border-emerald-500 p-[20px] '>
+<div className={styles.mainContainer}>
 
-    <div className='flex flex-col sm:flex-row gap-[80px] bg-[#111] text-[#bbb] '>
+    <div className={styles.subContainer1}>
 
         <div className='flex flex-1 '>
-            <img src={imgSrc} alt='' className='object-cover w-full lg:h-[300px] sm:h-[180px] h-[150px] '/>
+            <img src={imgSrc} alt='' className={styles.img}/>
         </div>
 
         <div className='flex flex-1 flex-col justify-center gap-[20px]'>
-            <h1 className='lg:text-[30px] sm:[20px] text-[16px] font-bold'>{title}</h1>
-            <p className='lg:text-[16px] sm:[14px] text-[10px]'>{desc}</p>
+            <h1 className={styles.title}>{title}</h1>
+            <p className={styles.desc}>{desc}</p>
         </div>    
     </div>
 
-    <div className='flex justify-center items-center gap-[25px] lg:gap-[100px] '>
+    <div className={styles.subContainer2}>
 
-        <div className='flex flex-col gap-[5px] '>
-            <div className='flex items-center justify-center gap-[5px] sm:gap-[10px]'>
+        <div className={styles.info}>
+            <div className={styles.infoIconDiv}>
                 {
                     isLiked ? (
-                        <img onClick={removeLike} src = '/images/icons/like2.png' alt= '' className= 'sm:h-[20px] sm:w-[20px] h-[14px] w-[14px] cursor-pointer ' />
+                        <img onClick={removeLike} src = '/images/icons/like2.png' alt= '' className= {styles.infoImg} />
                     ) : (
-                        <img onClick={addLike} src = '/images/icons/like1.png' alt= '' className= 'sm:h-[20px] sm:w-[20px] h-[14px] w-[14px] cursor-pointer ' />
+                        <img onClick={addLike} src = '/images/icons/like1.png' alt= '' className= {styles.infoImg} />
                     )
                 }
             </div>
-            <div className='text-[#bbb] font-semibold text-[8px] lg:text-[12px]'>Likes ({countLikes})</div>
+            <div className={styles.infoCount}>Likes ({countLikes})</div>
         </div>
 
-        <div className='flex flex-col gap-[5px] '>
-            <div className='flex items-center justify-center gap-[5px] sm:gap-[10px]'>
-                <img src = '/images/icons/comments.png' className='sm:h-[20px] sm:w-[20px] h-[14px] w-[14px] cursor-pointer' alt = '' />
+        <div className={styles.info}>
+            <div className={styles.infoIconDiv}>
+                <img src = '/images/icons/comments.png' className={styles.infoImg} alt = '' />
             </div>
-            <div className='text-[#bbb] font-semibold text-[8px] lg:text-[12px]'>Comments ({commentCnt})</div>
+            <div className={styles.infoCount}>Comments ({commentCnt})</div>
         </div>
 
-        <div className='flex flex-col gap-[5px] '>
-            <div className='flex items-center justify-center gap-[5px] sm:gap-[10px]'>
-                <img src = '/images/icons/views.png' className='sm:h-[20px] sm:w-[20px] h-[14px] w-[14px] cursor-pointer' alt = '' />
+        <div className={styles.info}>
+            <div className={styles.infoIconDiv}>
+                <img src = '/images/icons/views.png' className={styles.infoImg} alt = '' />
             </div>
-            <div className='text-[#bbb] font-semibold text-[8px] lg:text-[12px]'>Views ({viewsCnt})</div>
+            <div className={styles.infoCount}>Views ({viewsCnt})</div>
         </div>
         
-        <div className='flex flex-col gap-[5px] '>
-            <div className='flex items-center justify-center gap-[5px] sm:gap-[10px]'>
+        <div className={styles.info}>
+            <div className={styles.infoIconDiv}>
                 {
                     isSaved ? (
-                        <img onClick={toggleSaved} src = '/images/icons/save2.png' title="save icons" alt= '' className= 'sm:h-[20px] sm:w-[20px] h-[14px] w-[14px] cursor-pointer' />
+                        <img onClick={toggleSaved} src = '/images/icons/save2.png' title="save icons" alt= '' className= {styles.infoImg} />
                     ) : (
-                        <img onClick={toggleSaved} src = '/images/icons/save1.png' alt= '' className= 'sm:h-[20px] sm:w-[20px] h-[14px] w-[14px] cursor-pointer' />
+                        <img onClick={toggleSaved} src = '/images/icons/save1.png' alt= '' className= {styles.infoImg} />
                     )
                 } 
             </div>
-            <div className='text-[#bbb] font-semibold text-[8px] lg:text-[12px]'>Save</div>
+            <div className={styles.infoCount}>Save</div>
         </div>
 
-        <div className='flex flex-col gap-[5px] '>
-            <div className='flex items-center justify-center gap-[5px] sm:gap-[10px]'>
-                <img src = '/images/icons/share.png' className='sm:h-[20px] sm:w-[20px] h-[14px] w-[14px] cursor-pointer' alt = '' />
+        <div className={styles.info}>
+            <div className={styles.infoIconDiv}>
+                <img src = '/images/icons/share.png' className={styles.infoImg} alt = '' />
             </div>
-            <div className='text-[#bbb] font-semibold text-[8px] lg:text-[12px]'>Share</div>
+            <div className={styles.infoCount}>Share</div>
         </div>
 
     </div>
 
-    <div className='w-full flex flex-col justify-center items-center gap-[10px]'>
-        <textarea rows='1' placeholder='Add a comment' className=' text-white w-full bg-transparent border-[1px] outline-none p-[20px] '></textarea>
-        <button className='sm:py-[5px] sm:px-[10px] py-[2px] px-[5px] sm:text-[16px] text-[12px] cursor:pointer bg-emerald-500 border-[2px] border-emerald-500 rounded-[5px] w-max text-white font-semibold hover:text-[#111]'>
+    <div className={styles.subContainer3}>
+        <textarea rows='1' placeholder='Add a comment' className={styles.textarea}></textarea>
+        <button className={styles.button}>
             Submit
         </button>
     </div>
